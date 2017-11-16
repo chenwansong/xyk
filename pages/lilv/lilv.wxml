@@ -1,0 +1,65 @@
+<!--pages/lilv/lilv.wxml-->
+<import src="../../components/toptips/toptips.wxml"/>
+
+<template is="toptips" data="{{ ...$wux.toptips }}"/>
+<view class="page">
+    <view style='margin-top: 1.17647059em; padding-left: 10px'>
+        <view class="page__title">等额本息分期计算器</view>
+    </view>
+
+    <form bindsubmit="submitForm">
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">分期总额</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="totalAmount" value="{{totalAmount}}" class="weui-input" type="digit"
+                           placeholder="如10000" bindinput='input_total_amount' auto-focus/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">总分期数</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input name="month" value="{{month}}" class="weui-input" type="number"
+                           placeholder="分期月数，如12" bindinput='input_month'/>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">选择已知利息收取方式</view>
+        <view class="weui-cells weui-cells_after-title">
+
+            <radio-group name="radio" bindchange="radioChange">
+                <view class="weui-cell weui-cell_input">
+                    <radio value="1"/>
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">月还款额</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="monthAmount" value="{{monthAmount}}" class="weui-input" type="digit"
+                               placeholder="如920.23" bindinput="input_amount_month" focus="{{focusMonthAmount}}"/>
+                    </view>
+                </view>
+
+                <view class="weui-cell weui-cell_input">
+                    <radio  value="2"/>
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">单期利率</view>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <input name="monthInterest" value="{{monthInterest}}" class="weui-input" type="digit"
+                               placeholder="如0.75" bindinput="input_interest_month" focus="{{focusMonthInterest}}"/>
+                    </view>
+                    <view>%</view>
+                </view>
+            </radio-group>
+        </view>
+
+        <view class="button-sp-area">
+            <button class="weui-btn" type="primary" formType="submit">计算</button>
+        </view>
+    </form>
+</view>
