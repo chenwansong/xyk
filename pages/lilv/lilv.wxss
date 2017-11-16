@@ -1,1 +1,33 @@
 /* pages/lilv/lilv.wxss */
+
+.flex-wrp {
+    height: 2.58823529em;
+    line-height:2.58823529em;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFFFFF;
+    font-size: 17px;
+    padding: 0 15px;
+}
+
+.flex-item {
+}
+
+.flex-item1 {
+    color: #E64340;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.button-area {
+    margin: 20px auto ;
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    margin: 0 10px;
+    width: 100%;
+}
+
+

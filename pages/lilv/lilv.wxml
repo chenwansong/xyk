@@ -2,12 +2,13 @@
 <import src="../../components/toptips/toptips.wxml"/>
 
 <template is="toptips" data="{{ ...$wux.toptips }}"/>
-<view class="page">
+<view class="page" style='padding-bottom: 30px'>
     <view style='margin-top: 1.17647059em; padding-left: 10px'>
         <view class="page__title">等额本息分期计算器</view>
+        <view class="page__desc">输入相应的数值，计算出实际年化利率</view>
     </view>
 
-    <form bindsubmit="submitForm">
+    <form bindsubmit="submitForm" bindreset='resetForm'>
         <view class="weui-cells">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
@@ -45,7 +46,7 @@
                 </view>
 
                 <view class="weui-cell weui-cell_input">
-                    <radio  value="2"/>
+                    <radio value="2"/>
                     <view class="weui-cell__hd">
                         <view class="weui-label">单期利率</view>
                     </view>
@@ -58,8 +59,78 @@
             </radio-group>
         </view>
 
-        <view class="button-sp-area">
-            <button class="weui-btn" type="primary" formType="submit">计算</button>
+        <view class="button-area">
+            <button class="button" type="warn" formType="reset">重置</button>
+            <button class="button" type="primary" formType="submit">计算</button>
         </view>
     </form>
+
+
+    <view class="weui-cells">
+        <view class="weui-cell weui-cell_input" style="height: 2.58823529em; line-height:2.58823529em">
+            <view class="weui-cell__hd">
+                <view class='weui-label'>名义年利率:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class='flex-item'>{{mingyinianlilv}}</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input" style="height: 2.58823529em; line-height:2.58823529em">
+            <view class="weui-cell__hd">
+                <view class='weui-label'>实际年利率:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class='flex-item1'>{{trueInterest}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells">
+        <view class="weui-cell weui-cell_input" style="height: 2.58823529em; line-height:2.58823529em">
+            <view class="weui-cell__hd">
+                <view class='weui-label'>每月还本金:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class='flex-item'>{{yuebenjin}}</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input" style="height: 2.58823529em; line-height:2.58823529em">
+            <view class="weui-cell__hd">
+                <view class='weui-label'>每月还利息:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class='flex-item'>{{yuelixi}}</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input" style="height: 2.58823529em; line-height:2.58823529em">
+            <view class="weui-cell__hd">
+                <view class='weui-label'>每月还款额:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class='flex-item'>{{monthAmount}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="weui-cells">
+        <view class="weui-cell weui-cell_input" style="height: 2.58823529em; line-height:2.58823529em">
+            <view class="weui-cell__hd">
+                <view class='weui-label'>总还款利息:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class='flex-item'>{{zonglixi}}</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input" style="height: 2.58823529em; line-height:2.58823529em">
+            <view class="weui-cell__hd">
+                <view class='weui-label'>总还款金额:</view>
+            </view>
+            <view class="weui-cell__bd">
+                <view class='flex-item'>{{zonghuankuanjine}}</view>
+            </view>
+        </view>
+    </view>
+
+
 </view>
+
