@@ -5,6 +5,13 @@ App({
 
     onLaunch: function () {
         console.log('--->onLaunch')
+
+        // require SDK
+        require('./utils/sdk-v1.1.1')
+
+        // 初始化 SDK
+        let clientID = '535b3046dc8845b2e322'
+        wx.BaaS.init(clientID)
     },
 
     /**
