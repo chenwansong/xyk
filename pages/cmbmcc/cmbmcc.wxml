@@ -1,0 +1,46 @@
+<!--pages/cmbmcc/cmbmcc.wxml-->
+<import src="../../components/toptips/toptips.wxml"/>
+<import src="../../components/loading/loading.wxml"/>
+<import src="../../components/toast/toast.wxml"/>
+
+<template is="loading" data="{{ ...$wux.loading }}"/>
+<template is="toptips" data="{{ ...$wux.toptips }}"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
+<view class="page" style='padding-bottom: 30px'>
+    <view style='margin-top: 1.17647059em; padding-left: 10px;color: #888888;'>
+        <!--<view class="page__title">招商无积分MCC查询</view>-->
+        <view class="class1">
+            <view style="margin: 5px 5px 0 0;">①</view>
+            <view class="page__desc" style='padding:0 16px 0 0;'>输入15位商户号，查询该MCC是否在《零星不累积招行积分的商户列表》中</view>
+        </view>
+        <view class="class1">
+            <view style="margin: 5px 5px 0 0;">②</view>
+            <view class="page__desc" style='padding:0 16px 0 0;'>数据来源于招行官网(实时更新)</view>
+        </view>
+    </view>
+
+    <form bindsubmit="submitForm" bindreset='resetForm'>
+        <view class="weui-cells" style='padding: 0 15px;'>
+            <input name="inputmcc" value="{{mcc}}" class="weui-input" type="number"
+                   placeholder="请输入15位商户号" bindinput='input_mcc' maxlength="15"/>
+        </view>
+
+        <view class="button-area">
+            <button class="button" type="warn" formType="reset">重置</button>
+            <button class="button" type="primary" formType="submit">查询</button>
+        </view>
+    </form>
+
+
+    <view wx:for="{{mccblacklist}}" wx:key="no">
+        <view class="list-area">
+            <view class="list-item">{{item.blackmcc}}</view>
+            <view class="list-item">{{item.month}}</view>
+            <view class="list-item">
+                <icon class='icon' type="warn" size="20"/>
+                <text style='margin-left:4px;'>黑名单</text>
+            </view>
+        </view>
+    </view>
+
+</view>

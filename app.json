@@ -1,15 +1,31 @@
 {
   "pages": [
-
     "pages/lilv/lilv",
     "pages/index/index",
-    "pages/logs/logs"
-
+    "pages/logs/logs",
+    "pages/cmbmcc/cmbmcc"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#888888",
+    "selectedColor": "#04BE02",
+    "borderStyle": "white",
+    "backgroundColor": "#f7f7f8",
+    "list": [{
+      "pagePath": "pages/cmbmcc/cmbmcc",
+      "iconPath": "assets/images/mcc.png",
+      "selectedIconPath": "assets/images/mcc.png",
+      "text": "招行天书"
+    }, {
+      "pagePath": "pages/lilv/lilv",
+      "iconPath": "assets/images/lilv.png",
+      "selectedIconPath": "assets/images/lilv.png",
+      "text": "真实利率"
+    }]
   }
 }

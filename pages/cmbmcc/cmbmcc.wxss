@@ -1,0 +1,45 @@
+/* pages/cmbmcc/cmbmcc.wxss */
+
+.button-area {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    margin: 0 10px;
+    width: 100%;
+}
+
+.list-area {
+    height: 2.58823529em;
+    min-height: 2.58823529em;
+    line-height: 2.58823529em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.list-item {
+    padding: 0 6px;
+    background-color: lightblue;
+    font-size: 14px;
+    color: black;
+    width: 100%;
+    margin: 0.5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.class1 {
+    display: flex;
+    flex-direction: row;
+}
+
+

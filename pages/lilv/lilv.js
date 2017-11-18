@@ -165,7 +165,6 @@ Page({
 
     //提交表单计算
     submitForm: function (e) {
-        const params = e.detail.value
 
         if (!this.WxValidate.checkForm(e)) {
             const error = this.WxValidate.errorList[0]

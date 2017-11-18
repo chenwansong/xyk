@@ -16,7 +16,7 @@
                 </view>
                 <view class="weui-cell__bd">
                     <input name="totalAmount" value="{{totalAmount}}" class="weui-input" type="digit"
-                           placeholder="如10000" bindinput='input_total_amount' auto-focus/>
+                           placeholder="如10000" bindinput='input_total_amount' />
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
