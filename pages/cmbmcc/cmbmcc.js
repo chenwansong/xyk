@@ -126,63 +126,81 @@ Page({
             text: '数据查询中',
         })
 
-        let tableID = 3387
-        var query = new wx.BaaS.Query()
 
-        // query.contains('blackmcc', "102501558140119")
-        query.contains('blackmcc', this.data.mcc)
+        var that = this
+        wx.request({
+            url: 'https://www.demoyuan.com/wx/wx', //仅为示例，并非真实的接口地址
+            method: 'GET',
+            data: {
+                info: this.data.mcc,
+            },
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success: function (res) {
+                $wuxLoading.hide()
 
-        var Product = new wx.BaaS.TableObject(tableID)
-        Product.setQuery(query).find().then((res) => {
-            // success
-            $wuxLoading.hide()
+                var total_count = JSON.stringify(res.data.data.total_count)
+                console.error("total_count=" + total_count)
 
-            // data:
-            //     {
-            //         "meta": {
-            //             "limit": 20,
-            //             "next": null,
-            //             "offset": 0,
-            //             "previous": null,
-            //             "total_count": 1
-            //         },
-            //         "objects": [
-            //             {
-            //                 "_id": "5a0fa075fff1d607289f790b",
-            //                 "blackmcc": "836614670110080",
-            //                 "created_at": 1510973555,
-            //                 "created_by": 38883364,
-            //                 "id": "5a0fa075fff1d607289f790b",
-            //                 "mccname": "无",
-            //                 "month": "2017年9月",
-            //                 "read_perm": [
-            //                     "user:*"
-            //                 ],
-            //                 "updated_at": 1510973555,
-            //                 "write_perm": [
-            //                     "user:{created_by}"
-            //                 ]
-            //             }
-            //         ]
-            //     }
+                if (total_count == "0") {
+                    //未查询到
+                    console.error("----未查询到mcc")
+                    that.showNoData()
+                } else {
+                    that.setData({
+                        mccblacklist: res.data.data.objects
+                    })
+                }
 
-            var total_count = JSON.stringify(res.data.meta.total_count)
-            console.error("total_count=" + total_count)
-
-            if (total_count == "0") {
-                //未查询到
-              console.error("----未查询到mcc")
-                this.showNoData()
-            } else {
-                this.setData({
-                    mccblacklist: res.data.objects
-                })
+                console.log(res.data)
             }
-        }, (err) => {
-            // err
-            $wuxLoading.hide()
-            console.error("err.data=" + err.data)
         })
+
+        // let tableID = 3387
+        // var query = new wx.BaaS.Query()
+        //
+        // // query.contains('blackmcc', "102501558140119")
+        // query.contains('blackmcc', this.data.mcc)
+        //
+        // var Product = new wx.BaaS.TableObject(tableID)
+        // Product.setQuery(query).find().then((res) => {
+        //     // success
+        //     $wuxLoading.hide()
+        //
+        //     // data:
+        //     //     {
+        //     //          "total_count": 1,
+        //     //         "objects": [
+        //     //             {
+        //     //                 "blackmcc": "836614670110080",
+        //     //                 "mccname": "无",
+        //     //                 "month": "2017年9月",
+        //     //             }, {
+        //     //                 "blackmcc": "836614670110080",
+        //     //                 "mccname": "无",
+        //     //                 "month": "2017年9月",
+        //     //             }
+        //     //         ]
+        //     //     }
+        //
+        //     var total_count = JSON.stringify(res.data.meta.total_count)
+        //     console.error("total_count=" + total_count)
+        //
+        //     if (total_count == "0") {
+        //         //未查询到
+        //         console.error("----未查询到mcc")
+        //         this.showNoData()
+        //     } else {
+        //         this.setData({
+        //             mccblacklist: res.data.objects
+        //         })
+        //     }
+        // }, (err) => {
+        //     // err
+        //     $wuxLoading.hide()
+        //     console.error("err.data=" + err.data)
+        // })
 
     },
 
@@ -200,12 +218,9 @@ Page({
             },
         })
 
-        console.error()
-
-
         this.WxValidate.addMethod(
             'assistance', (value, param) => {
-                return this.data.mcc.length == 15 ? true : false
+                return (this.data.mcc.length == 15 ? true : false) && (new RegExp(/^[0-9a-zA-Z]*$/g).test(this.data.mcc))
             }, '请输入正确的MCC'
         )
     }

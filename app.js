@@ -4,14 +4,8 @@
 App({
 
     onLaunch: function () {
-        console.log('--->onLaunch')
+        console.log('app.js--->onLaunch')
 
-        // require SDK
-        require('./utils/sdk-v1.1.1')
-
-        // 初始化 SDK
-        let clientID = '535b3046dc8845b2e322'
-        wx.BaaS.init(clientID)
     },
 
     /**
@@ -19,56 +13,56 @@ App({
      */
     onLoad: function (options) {
 
-        console.log("--->onLoad")
+        console.log("app.js--->onLoad")
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        console.log("--->onReady")
+        console.log("app.js--->onReady")
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        console.log("--->onShow")
+        console.log("app.js--->onShow")
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-        console.log("--->onHide")
+        console.log("app.js--->onHide")
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-        console.log("--->onUnload")
+        console.log("app.js--->onUnload")
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        console.log("--->onPullDownRefresh")
+        console.log("app.js--->onPullDownRefresh")
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        console.log("--->onReachBottom")
+        console.log("app.js--->onReachBottom")
     },
 
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        console.log("--->onShareAppMessage")
+        console.log("app.js--->onShareAppMessage")
     }
 
 })
