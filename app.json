@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/cmbmcc/cmbmcc",
     "pages/lilv/lilv",
+    "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {
@@ -18,16 +18,16 @@
     "backgroundColor": "#f7f7f8",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/cmbmcc/cmbmcc",
         "iconPath": "assets/images/mcc.png",
         "selectedIconPath": "assets/images/mcc.png",
-        "text": "百宝箱"
+        "text": "招行天书"
       },
       {
         "pagePath": "pages/lilv/lilv",
         "iconPath": "assets/images/lilv.png",
         "selectedIconPath": "assets/images/lilv.png",
-        "text": "我的"
+        "text": "分期利率"
       }
     ]
   }

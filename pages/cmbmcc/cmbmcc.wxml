@@ -16,7 +16,7 @@
         <view class="class1">
             <view style="margin: 5px 5px 0 0;">②</view>
             <view class="page__desc">数据来源于招行官网(</view>
-            <view class="page__desc" style='color: red'>2017年11月</view>
+            <view class="page__desc" style='color: red'>2017年12月</view>
             <view class="page__desc" style='padding:0 16px 0 0;'>)</view>
         </view>
     </view>

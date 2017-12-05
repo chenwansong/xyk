@@ -113,14 +113,20 @@ Page({
     //输入月还款金额
     input_amount_month: function (e) {
         this.setData({
-            monthAmount: e.detail.value
+            monthAmount: e.detail.value,
+
+            focusMonthAmount: true,
+            focusMonthInterest: false,
         })
     },
 
     //输入了分期费率
     input_interest_month: function (e) {
         this.setData({
-            monthInterest: e.detail.value
+            monthInterest: e.detail.value,
+
+            focusMonthAmount: false,
+            focusMonthInterest: true,
         })
 
     },
@@ -181,12 +187,12 @@ Page({
         if (this.data.type == 1) {
             //知道月还款额
             var yuebenjin = (this.data.totalAmount / this.data.month).toFixed(2) //每月本金
-            var yuelixi = this.data.monthAmount - yuebenjin //每月利息
+            var yuelixi = (this.data.monthAmount - yuebenjin).toFixed(2) //每月利息
             var yuelilv = yuelixi / this.data.totalAmount * 100 //月利率
             var zonghuankuanjine = (this.data.monthAmount * this.data.month).toFixed(2)//总还款金额
-            var zonglixi = this.data.month * yuelixi//总利息
+            var zonglixi = (this.data.month * yuelixi).toFixed(2)//总利息
 
-            var mingyinianlilv = yuelilv * 12  //名义年利率
+            var mingyinianlilv = (yuelilv * 12).toFixed(2)  //名义年利率
             var trueInterest = (24 * this.data.month * yuelilv / (parseInt(this.data.month) + 1)).toFixed(2)
             this.setData(
                 {

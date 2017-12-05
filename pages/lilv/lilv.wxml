@@ -16,7 +16,7 @@
                 </view>
                 <view class="weui-cell__bd">
                     <input name="totalAmount" value="{{totalAmount}}" class="weui-input" type="digit"
-                           placeholder="如10000" bindinput='input_total_amount' />
+                           placeholder="如10000" bindinput='input_total_amount'/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
@@ -35,7 +35,7 @@
 
             <radio-group name="radio" bindchange="radioChange">
                 <view class="weui-cell weui-cell_input">
-                    <radio value="1"/>
+                    <radio value="1" checked="{{focusMonthAmount}}"/>
                     <view class="weui-cell__hd">
                         <view class="weui-label">月还款额</view>
                     </view>
@@ -46,7 +46,7 @@
                 </view>
 
                 <view class="weui-cell weui-cell_input">
-                    <radio value="2"/>
+                    <radio value="2" checked="{{focusMonthInterest}}"/>
                     <view class="weui-cell__hd">
                         <view class="weui-label">单期利率</view>
                     </view>
