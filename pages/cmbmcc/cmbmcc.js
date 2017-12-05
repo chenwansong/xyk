@@ -18,7 +18,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.initValidate()
+        this.initValidate();
+        this.formatData(null);
     },
 
     /**
@@ -155,53 +156,43 @@ Page({
 
                 console.log(res.data)
             }
+
         })
 
-        // let tableID = 3387
-        // var query = new wx.BaaS.Query()
-        //
-        // // query.contains('blackmcc', "102501558140119")
-        // query.contains('blackmcc', this.data.mcc)
-        //
-        // var Product = new wx.BaaS.TableObject(tableID)
-        // Product.setQuery(query).find().then((res) => {
-        //     // success
-        //     $wuxLoading.hide()
-        //
-        //     // data:
-        //     //     {
-        //     //          "total_count": 1,
-        //     //         "objects": [
-        //     //             {
-        //     //                 "blackmcc": "836614670110080",
-        //     //                 "mccname": "无",
-        //     //                 "month": "2017年9月",
-        //     //             }, {
-        //     //                 "blackmcc": "836614670110080",
-        //     //                 "mccname": "无",
-        //     //                 "month": "2017年9月",
-        //     //             }
-        //     //         ]
-        //     //     }
-        //
-        //     var total_count = JSON.stringify(res.data.meta.total_count)
-        //     console.error("total_count=" + total_count)
-        //
-        //     if (total_count == "0") {
-        //         //未查询到
-        //         console.error("----未查询到mcc")
-        //         this.showNoData()
-        //     } else {
-        //         this.setData({
-        //             mccblacklist: res.data.objects
-        //         })
-        //     }
-        // }, (err) => {
-        //     // err
-        //     $wuxLoading.hide()
-        //     console.error("err.data=" + err.data)
-        // })
+    },
 
+
+        // data:
+        //     {
+        //          "total_count": 1,
+        //         "objects": [
+        //             {
+        //                 "blackmcc": "836614670110080",
+        //                 "mccname": "无",
+        //                 "month": "2017年9月",
+        //             }, {
+        //                 "blackmcc": "836614670110080",
+        //                 "mccname": "无",
+        //                 "month": "2017年9月",
+        //             }
+        //         ]
+        //     }
+    //整理数据
+    formatData: function (mccblacklist) {
+        // if (mccblacklist.length > 0) {
+
+            let date = new Date;
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            month = (month < 10 ? "0" + month : month);
+            let currentData = (year.toString() + month.toString());//201712
+
+
+            // let mccblacklist;
+
+        console.error(month);
+
+        // }
     },
 
 

@@ -1,14 +1,14 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/cmbmcc/cmbmcc",
     "pages/lilv/lilv",
-    "pages/index/index",
     "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "信用卡百宝箱",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -18,16 +18,16 @@
     "backgroundColor": "#f7f7f8",
     "list": [
       {
-        "pagePath": "pages/cmbmcc/cmbmcc",
+        "pagePath": "pages/index/index",
         "iconPath": "assets/images/mcc.png",
         "selectedIconPath": "assets/images/mcc.png",
-        "text": "招行天书"
+        "text": "百宝箱"
       },
       {
         "pagePath": "pages/lilv/lilv",
         "iconPath": "assets/images/lilv.png",
         "selectedIconPath": "assets/images/lilv.png",
-        "text": "真实利率"
+        "text": "我的"
       }
     ]
   }
