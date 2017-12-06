@@ -1,6 +1,6 @@
 /**index.wxss**/
 .swiper {
-  height: 400rpx;
+  height: 350rpx;
   width: 100%;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .grids-small .grid {
-  width: 25%;
+  width: 50%;
   padding: 15px 8px
 }
 

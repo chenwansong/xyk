@@ -3,7 +3,8 @@
 
     <swiper class="swiper" indicator-dots="true" indicator-active-color="white" indicator-color="black" autoplay="true"
             interval="3000"
-            duration="500">
+            duration="500"
+            hidden="true">
         <block wx:for="{{imgUrls}}" wx:key="key">
             <swiper-item>
                 <image src="{{item}}" class="image"></image>

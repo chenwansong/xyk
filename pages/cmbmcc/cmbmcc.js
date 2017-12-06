@@ -11,7 +11,7 @@ Page({
     data: {
         mcc: "",
         mccblacklist: [],
-
+        mcchistory: [],
     },
 
     /**
@@ -19,7 +19,8 @@ Page({
      */
     onLoad: function (options) {
         this.initValidate();
-        this.formatData(null);
+        this.getHistoryMcc();//读取查询历史记录
+        // this.formatData(null);
     },
 
     /**
@@ -71,6 +72,85 @@ Page({
 
     },
 
+    //保存历史查询记录
+    setHistoryMcc: function (mcc) {
+        //先同步读取
+        var mcclist = wx.getStorageSync('mcchistory')
+
+        console.error("---setHistoryMcc()--mcclist=" + mcclist);
+
+        var newMccString = "";
+        if (mcclist == null || mcclist == "") {
+            newMccString = mcc + ",";
+        } else {
+            //已经包含这个mcc
+            if (mcclist.indexOf(mcc) >= 0) {
+                var list = mcclist.split(",");
+                list.pop();//移除末尾的空元素
+                console.error("---setHistoryMcc()--list.length=" + list.length);
+
+                for (let i = 0; i < list.length; i++) {
+                    if (list[i] == mcc) {
+                        list.splice(i, 1);
+                        break;
+                    }
+                }
+
+                console.error("---setHistoryMcc()--list.length=" + list.length);
+
+                list.push(mcc);
+
+                console.error("---setHistoryMcc()--list.length=" + list.length);
+                console.error("---setHistoryMcc()--newMccString=" + newMccString);
+
+                for (let i = 0; i < list.length; i++) {
+                    newMccString = newMccString + list[i] + ",";
+                }
+
+                console.error("---setHistoryMcc()--newMccString=" + newMccString);
+            } else {
+                newMccString = mcclist + mcc + ",";
+            }
+        }
+
+        console.error("---setHistoryMcc()--newMccString=" + newMccString);
+        //保存
+        try {
+            wx.setStorageSync('mcchistory', newMccString)
+        } catch (e) {
+            console.error("---setHistoryMcc()--e=" + e.toString());
+        }
+
+        this.getHistoryMcc();
+    },
+
+    //获取历史查询记录
+    getHistoryMcc: function () {
+        try {
+            var value = wx.getStorageSync('mcchistory')
+            console.error("---getHistoryMcc()--mcchistory=" + value);
+
+            if (value) {
+                var list = value.split(",").reverse();
+                list.shift();
+                this.setData({
+                    mcchistory: list,
+                })
+            }
+        } catch (e) {
+            console.error("---getHistoryMcc()--e=" + e.toString());
+        }
+    },
+
+    //监听器--打开历史查询记录选择器
+    bindPickerChange: function (e) {
+
+        this.setData({
+            mcc: this.data.mcchistory[e.detail.value]
+        })
+    },
+
+
     input_mcc: function (e) {
 
         this.setData({
@@ -117,6 +197,9 @@ Page({
             return false
         }
 
+        //保存到本地并更新历史记录
+        this.setHistoryMcc(this.data.mcc);
+
         //重置查询结果列表
         this.setData({
             mccblacklist: []
@@ -156,39 +239,38 @@ Page({
 
                 console.log(res.data)
             }
-
         })
 
     },
 
 
-        // data:
-        //     {
-        //          "total_count": 1,
-        //         "objects": [
-        //             {
-        //                 "blackmcc": "836614670110080",
-        //                 "mccname": "无",
-        //                 "month": "2017年9月",
-        //             }, {
-        //                 "blackmcc": "836614670110080",
-        //                 "mccname": "无",
-        //                 "month": "2017年9月",
-        //             }
-        //         ]
-        //     }
+    // data:
+    //     {
+    //          "total_count": 1,
+    //         "objects": [
+    //             {
+    //                 "blackmcc": "836614670110080",
+    //                 "mccname": "无",
+    //                 "month": "2017年9月",
+    //             }, {
+    //                 "blackmcc": "836614670110080",
+    //                 "mccname": "无",
+    //                 "month": "2017年9月",
+    //             }
+    //         ]
+    //     }
     //整理数据
     formatData: function (mccblacklist) {
         // if (mccblacklist.length > 0) {
 
-            let date = new Date;
-            let year = date.getFullYear();
-            let month = date.getMonth() + 1;
-            month = (month < 10 ? "0" + month : month);
-            let currentData = (year.toString() + month.toString());//201712
+        let date = new Date;
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        month = (month < 10 ? "0" + month : month);
+        let currentData = (year.toString() + month.toString());//201712
 
 
-            // let mccblacklist;
+        // let mccblacklist;
 
         console.error(month);
 

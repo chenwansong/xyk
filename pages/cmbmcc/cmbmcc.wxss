@@ -11,6 +11,27 @@
     width: 100%;
 }
 
+.input-area {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input {
+    flex-grow: 1;
+    padding: 0 15px;
+    background-color: #FFFFFF;
+    height: 2.58823529em;
+    min-height: 2.58823529em;
+    line-height: 2.58823529em;
+    font-size: 17px;
+}
+
+.button1 {
+    margin: 0 0 0 10px;
+}
+
 .list-area {
     height: 2.58823529em;
     min-height: 2.58823529em;

@@ -22,9 +22,16 @@
     </view>
 
     <form bindsubmit="submitForm" bindreset='resetForm'>
-        <view class="weui-cells" style='padding: 0 15px;'>
-            <input name="inputmcc" value="{{mcc}}" class="weui-input" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')"
-                   placeholder="请输入15位商户号" bindinput='input_mcc' maxlength="15"/>
+
+        <view class="input-area">
+            <view class="input">
+                <input name="inputmcc" value="{{mcc}}" class="weui-input"
+                       onkeyup="value=value.replace(/[^\w\.\/]/ig,'')"
+                       placeholder="请输入15位商户号" bindinput='input_mcc' maxlength="15"/>
+            </view>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{mcchistory}}">
+                <icon class="button1" type="waiting" size="40" bindtap="history"/>
+            </picker>
         </view>
 
         <view class="button-area">

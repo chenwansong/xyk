@@ -20,6 +20,13 @@ Page({
                 url: '/pages/lilv/lilv',
                 icon: '../../assets/images/iconfont-keyboard.png',
             },
+            {
+                title: '浦发AE酒店',
+                url: '/pages/spdbhotel/spdbhotel',
+                icon: '../../assets/images/iconfont-keyboard.png',
+            },
+
+
         ],
     },
 
