@@ -1,2 +1,80 @@
-<!--pages/spdbhotel/spdbhotel.wxml-->
-<text>pages/spdbhotel/spdbhotel.wxml</text>
+<import src="../../components/loading/loading.wxml"/>
+<import src="../../components/toast/toast.wxml"/>
+
+<template is="loading" data="{{ ...$wux.loading }}"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
+<view class="page" style='padding-bottom: 30px'>
+
+    <view style='margin-top: 1.17647059em; padding-left: 10px;color: #888888;'>
+        <view class="class1">
+            <view style="margin: 5px 5px 0 0;">①</view>
+            <view class="page__desc" style='padding:0 16px 0 0;'>数据来源于浦发银行官网</view>
+        </view>
+        <view class="class1">
+            <view style="margin: 5px 5px 0 0;">②</view>
+            <view class="page__desc">仅供参考，详情请咨询浦发银行客服</view>
+        </view>
+    </view>
+
+
+    <view class="index-bd">
+        <view class="kind-list">
+
+            <block wx:for-items="{{list}}" wx:key="{{item.id}}">
+
+                <view class="kind-list-item">
+                    <view id="{{item.id}}" class="kind-list-item-hd {{item.open ? 'kind-list-item-hd-show' : ''}}"
+                          bindtap="kindToggle">
+
+                        <view class="kind-list-text">{{item.country}}●{{item.hotelNameCN}}</view>
+                        <view class="navigator-arrow"></view>
+
+                    </view>
+
+
+                    <view class="kind-list-item-bd {{item.open ? 'kind-list-item-bd-show' : ''}}">
+                        <view class="navigator-box {{item.open ? 'navigator-box-show' : ''}}">
+
+                            <view class="child">
+                                <view class="child-hint">国家：</view>
+                                <view class="navigator-text">{{item.country}}</view>
+                            </view>
+                            <view class="child">
+                                <view class="child-hint">城市：</view>
+                                <view class="navigator-text">{{item.city}}</view>
+                            </view>
+                            <view class="child">
+                                <view class="child-hint">中文名称：</view>
+                                <view class="navigator-text">{{item.hotelNameCN}}</view>
+                            </view>
+                            <view class="child">
+                                <view class="child-hint">英文名称：</view>
+                                <view class="navigator-text">{{item.hotelNameEN}}</view>
+                            </view>
+                            <view class="child">
+                                <view class="child-hint">房型：</view>
+                                <view class="navigator-text">{{item.type}}</view>
+                            </view>
+                            <view class="child">
+                                <view class="child-hint">是否含早：</view>
+                                <view class="navigator-text">{{item.breakfast}}</view>
+                            </view>
+                            <view class="child">
+                                <view class="child-hint">酒店地址：</view>
+                                <view class="navigator-text">{{item.address}}</view>
+                            </view>
+                            <view class="child">
+                                <view class="child-hint">关房日期：</view>
+                                <view class="navigator-text">{{item.closeDay}}</view>
+                            </view>
+
+                        </view>
+                    </view>
+
+                </view>
+            </block>
+
+        </view>
+    </view>
+
+</view>

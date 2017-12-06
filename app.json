@@ -29,7 +29,7 @@
         "pagePath": "pages/my/my",
         "iconPath": "assets/images/iconfont-about.png",
         "selectedIconPath": "assets/images/iconfont-about-active.png",
-        "text": "我的"
+        "text": "反馈"
       }
     ]
   }

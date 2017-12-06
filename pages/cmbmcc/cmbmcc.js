@@ -179,7 +179,7 @@ Page({
     showNoData() {
         $wuxToast.show({
             type: 'success',
-            timer: 3000,
+            timer: 1500,
             color: '#fff',
             text: '恭喜!\n未查询到该MCC',
             success: () => console.log('已完成')

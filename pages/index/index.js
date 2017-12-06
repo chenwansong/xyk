@@ -3,7 +3,6 @@
 Page({
     data: {
         imgUrls: [
-            'https://onlineapp.spdbccc.com.cn/ccoa/new/productactivity/cardProductPicture.json?picUrl=/wsoadata/product/meiyun0186001_20160415004726.jpg',
             'http://www.flyertea.com/hot/cmb/img/baijin.png',
             'http://www.flyertea.com/hot/cmb/img/zuanshi.png',
             'http://www.flyertea.com/hot/cmb/img/aebaijin.png'
@@ -23,7 +22,7 @@ Page({
             {
                 title: '浦发AE酒店',
                 url: '/pages/spdbhotel/spdbhotel',
-                icon: '../../assets/images/iconfont-keyboard.png',
+                icon: '../../assets/images/iconfont-backdrop.png',
             },
 
 
