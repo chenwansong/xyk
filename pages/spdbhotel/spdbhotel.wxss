@@ -4,6 +4,15 @@
     flex-direction: row;
 }
 
+.picker{
+    margin-top: 10px;
+    background-color: white;
+}
+
+.city{
+    width: 100%;
+    padding: 10px 16px;
+}
 
 .index-bd {
     padding: 40rpx 30rpx 40rpx;

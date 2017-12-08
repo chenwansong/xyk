@@ -2,15 +2,17 @@
 import {$wuxLoading} from '../../components/wux'
 
 
+var allHotelList = [];
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
         list: [],
-
+        cities: [],
+        index: 0,
     },
 
 
@@ -88,9 +90,8 @@ Page({
             success: function (res) {
                 $wuxLoading.hide();
 
-                console.error("---res.data.data.length=" + res.data.data.length);
                 var list = [];
-
+                var cities = [];
                 for (let i = 0; i < res.data.data.length; i++) {
 
                     var temp = new Object();
@@ -106,15 +107,37 @@ Page({
                     temp.type = res.data.data[i].type;
 
                     list.push(temp);
+
+                    if (cities.indexOf(temp.city) < 0) {
+                        cities.push(temp.city);
+                    }
                 }
 
+                console.error("---cities.length=" + cities.length);
+                console.error("---list.length=" + list.length);
                 that.setData({
-                    list: list
+                    list: list,
+                    cities: cities,
                 })
-
+                allHotelList = list;
             }
         })
 
+    },
+
+
+    //监听器--打开选择器
+    bindPickerChange: function (e) {
+        let city = this.data.cities[e.detail.value];
+
+        let list = allHotelList.filter(function (item) {
+            return item.city == city;
+        })
+
+        this.setData({
+            list: list,
+            index: e.detail.value,
+        })
     },
 
 
