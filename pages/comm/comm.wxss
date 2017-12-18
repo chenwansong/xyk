@@ -1,0 +1,95 @@
+/* pages/cmbmcc/cmbmcc.wxss */
+
+.button-area {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.button {
+    margin: 0 10px;
+    width: 100%;
+}
+
+.input-area {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input {
+    flex-grow: 1;
+    padding: 0 15px;
+    background-color: #FFFFFF;
+    height: 2.58823529em;
+    min-height: 2.58823529em;
+    line-height: 2.58823529em;
+    font-size: 17px;
+}
+
+.button1 {
+    margin: 0 0 0 10px;
+}
+
+.list-area {
+    height: 2.58823529em;
+    min-height: 2.58823529em;
+    line-height: 2.58823529em;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.list-item {
+    padding: 0 6px;
+    background-color: lightblue;
+    font-size: 14px;
+    color: black;
+    width: 100%;
+    margin: 0.5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.class1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.view-body {
+    background-color: white;
+    margin: 20px 0;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.view-item {
+    padding: 4px 16px;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+}
+
+.view-item-item {
+    background-color: white;
+    margin-top: 1px;
+    padding: 4px;
+    justify-content: center;
+}
+
+.line {
+    margin: 0 14px;
+    height: 1px;
+    background-color: #D9D9D9;
+}
+
+
+

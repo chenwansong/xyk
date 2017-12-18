@@ -24,6 +24,11 @@ Page({
                 url: '/pages/spdbhotel/spdbhotel',
                 icon: '../../assets/images/iconfont-backdrop.png',
             },
+            {
+                title: '交行黑名单',
+                url: '/pages/comm/comm',
+                icon: '../../assets/images/iconfont-barcode.png',
+            },
 
 
         ],

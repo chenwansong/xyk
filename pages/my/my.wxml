@@ -2,8 +2,7 @@
 <view class="main">
     <text>扫一扫下图二维码</text>
     <text>加入微信群</text>
-    <text>随时反馈问题</text>
-    <text>非常感谢!</text>
-
+    <text>获取最新信息</text>
+    <text>感谢您的使用!</text>
     <image mode="aspectFit" src="../../assets/images/wxqun.png"></image>
 </view>

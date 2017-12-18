@@ -1,0 +1,65 @@
+<!--pages/cmbmcc/cmbmcc.wxml-->
+<import src="../../components/toptips/toptips.wxml"/>
+<import src="../../components/loading/loading.wxml"/>
+<import src="../../components/toast/toast.wxml"/>
+
+<template is="loading" data="{{ ...$wux.loading }}"/>
+<template is="toptips" data="{{ ...$wux.toptips }}"/>
+<template is="toast" data="{{ ...$wux.toast }}"/>
+<view class="page" style='padding-bottom: 30px'>
+    <view style='margin-top: 1.17647059em; padding-left: 10px;color: #888888;'>
+        <!--<view class="page__title">交通银行周周刷MCC查询</view>-->
+        <view class="class1">
+            <view style="margin: 5px 5px 0 0;">①</view>
+            <view class="page__desc" style='padding:0 16px 0 0;'>输入15位商户号，查询该MCC是否在《交通银行周周刷不计积分名单》中</view>
+        </view>
+        <view class="class1">
+            <view style="margin: 5px 5px 0 0;">②</view>
+            <view class="page__desc">数据来源于交通银行官网(</view>
+            <view class="page__desc" style='color: red'>实时更新</view>
+            <view class="page__desc" style='padding:0 16px 0 0;'>)</view>
+        </view>
+    </view>
+
+    <form bindsubmit="submitForm" bindreset='resetForm'>
+
+        <view class="input-area">
+            <view class="input">
+                <input name="inputmcc" value="{{mcc}}" class="weui-input"
+                       onkeyup="value=value.replace(/[^\w\.\/]/ig,'')"
+                       placeholder="请输入15位商户号" bindinput='input_mcc' maxlength="15"/>
+            </view>
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{mcchistory}}">
+                <icon class="button1" type="waiting" size="40" bindtap="history"/>
+            </picker>
+        </view>
+
+        <view class="button-area">
+            <button class="button" type="warn" formType="reset">重置</button>
+            <button class="button" type="primary" formType="submit">查询</button>
+        </view>
+    </form>
+
+    <view class="view-body">
+        <view class="view-item">
+            <view class="view-item-item">MCC:</view>
+            <view class="view-item-item">{{blackcode}}</view>
+        </view>
+        <view class="line"/>
+        <view class="view-item">
+            <view class="view-item-item">商户号：</view>
+            <view class="view-item-item">{{blackmmc}}</view>
+        </view>
+        <view class="line"/>
+        <view class="view-item">
+            <view class="view-item-item">交通积分:</view>
+            <view class="view-item-item">{{hasCode}}</view>
+        </view>
+        <view class="line"/>
+        <view class="view-item">
+            <view class="view-item-item">周周刷黑名单：</view>
+            <view class="view-item-item">{{hasmmc}}</view>
+        </view>
+    </view>
+
+</view>
