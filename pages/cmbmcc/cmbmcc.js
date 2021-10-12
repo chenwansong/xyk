@@ -87,6 +87,7 @@ Page({
             if (mcclist.indexOf(mcc) >= 0) {
                 var list = mcclist.split(",");
                 list.pop();//移除末尾的空元素
+
                 console.error("---setHistoryMcc()--list.length=" + list.length);
 
                 for (let i = 0; i < list.length; i++) {
